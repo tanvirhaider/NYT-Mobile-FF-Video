@@ -43,27 +43,32 @@
 <!--Removed Script<script type="text/javascript" src="https://static01.nyt.com/ads/dfp_native_ads/javascript/canvas-video-player-patched.js"></script>
 -->
 
-<script type="text/javascript">
+<script type="text/javascript" id="update-10.4.2019">
 
-var video = document.querySelector('video');
-var replay = document.querySelector("img[src='https://www.gstatic.com/dfp/native/replay.png']"); 
-var adVideo = document.getElementsByClassName('ad-video')[0]; 
+var video,replay,adVideo;
+
+setTimeout(function(){
+
+  video = document.querySelector('video');
+  replay = document.querySelector("img[src='https://www.gstatic.com/dfp/native/replay.png']"); 
+  adVideo = document.getElementsByClassName('ad-video')[0]; 
+
+  video.addEventListener('play', function(){
+  document.getElementsByClassName("title")[0].style.display = "none"; 
+  document.getElementsByClassName("summary")[0].style.display = "none";
+  });
+
+  video.addEventListener('pause', function(){
+  document.getElementsByClassName("title")[0].style.display = "block"; 
+  document.getElementsByClassName("summary")[0].style.display = "block";    
+  });
 
 
+  runSIXnine(); 
 
 
-video.addEventListener('play', function(){
-document.getElementsByClassName("title")[0].style.display = "none"; 
-document.getElementsByClassName("summary")[0].style.display = "none";
-});
+}, 3000);
 
-video.addEventListener('pause', function(){
-document.getElementsByClassName("title")[0].style.display = "block"; 
-document.getElementsByClassName("summary")[0].style.display = "block";    
-});
-
-
-//For 16:9
 
 var VideoSize = [%VideoSize%];
 
@@ -103,7 +108,6 @@ function myFunction() {
  console.log("myFunction is working"); 
 }
 
-runSIXnine(); 
 
 
 // Native Tracking Code //
