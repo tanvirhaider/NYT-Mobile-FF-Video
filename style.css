@@ -112,7 +112,12 @@ body {
   bottom: 22px;
   text-align: center;
   left:0px;
-  right:0px
+  right:0px;
+  pointer-events: none;
+}
+
+.media-content a {
+  pointer-events: none;
 }
 
 .video-content {
@@ -222,12 +227,18 @@ body {
   margin-left: 25px;
 }
 
+#adcopy {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .title {
   font-size: 27px;
   font-family: 'Proxima N W01 Smbd', sans-serif;
   max-width: 485px;
   margin-bottom: 5px;
   line-height: 1;
+  pointer-events: auto;
 }
 
 .media-container .title {
@@ -241,6 +252,7 @@ body {
   font-size: 18px;
   max-width: 280px;
   margin:auto;
+  pointer-events: auto;
   
 }
 
@@ -263,6 +275,7 @@ body {
   text-align: center;
   display: inline-block;
   margin-top:10px;
+  pointer-events: auto;
   
 }
 

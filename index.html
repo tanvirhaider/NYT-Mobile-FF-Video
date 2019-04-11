@@ -10,8 +10,11 @@
     <div id="media-container" class="media-container">
       <div class="media-content">
         <a target="_blank" href="%%CLICK_URL_UNESC%%%%DEST_URL%%">
-        <div id="title1" class="title">[%Headline%]</div>
-        <div class="summary">[%Summary%]</div>
+			<div id="adcopy">
+					<div id="title1" class="title">[%Headline%]</div>
+					<div class="summary">[%Summary%]</div>
+			</div>
+     
         <div onclick="eventTracker.generalEventTrack('clickURL', 'cta', '%%CLICK_URL_UNESC%%%%DEST_URL_UNESC%%'), selectFunction()" class="cta">[%CTA%]</div>
         </a>
       </div>
@@ -54,13 +57,15 @@ setTimeout(function(){
   adVideo = document.getElementsByClassName('ad-video')[0]; 
 
   video.addEventListener('play', function(){
-  document.getElementsByClassName("title")[0].style.display = "none"; 
-  document.getElementsByClassName("summary")[0].style.display = "none";
+	  document.getElementById("adcopy").style.visibility = "hidden";
+  //document.getElementsByClassName("title")[0].style.display = "none"; 
+  //document.getElementsByClassName("summary")[0].style.display = "none";
   });
 
   video.addEventListener('pause', function(){
-  document.getElementsByClassName("title")[0].style.display = "block"; 
-  document.getElementsByClassName("summary")[0].style.display = "block";    
+	document.getElementById("adcopy").style.visibility = "visible";
+  //document.getElementsByClassName("title")[0].style.display = "block"; 
+  //document.getElementsByClassName("summary")[0].style.display = "block";    
   });
 
 
