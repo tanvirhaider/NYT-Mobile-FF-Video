@@ -67,7 +67,7 @@ setTimeout(function(){
   runSIXnine(); 
 
 
-}, 3000);
+}, 1000);
 
 
 var VideoSize = [%VideoSize%];
@@ -76,7 +76,7 @@ function runSIXnine(){
    if (VideoSize === "16x9") {
      styles();
       video.onended = function(){
-        myFunction();
+        processVDOthumbnail();
     }
   } 
   console.log("sunSIXnine fire!!")
@@ -94,18 +94,24 @@ function styles(){
   }
 
 
-function myFunction() {
-  setInterval(function(){   
-    var cover = document.getElementById("video-thumbnail-image");
-	
-  cover.style.zIndex = "0";
-	cover.style.width = "auto";
-	cover.style.height = "100%";
-	cover.style.position = "fixed";
-	cover.style.left = "0px";
-	cover.style.top = "0px";
-  }, 0);
- console.log("myFunction is working"); 
+function processVDOthumbnail() {
+	setInterval(function(){   
+		try {
+			var cover = document.getElementById("video-thumbnail-image");
+			cover.style.zIndex = "0";
+			cover.style.width = "auto";
+			cover.style.height = "100%";
+			cover.style.position = "fixed";
+			cover.style.left = "0px";
+			cover.style.top = "0px";
+		}
+		catch(Error) {
+			console.error(Error);
+		}
+		
+	}, 0);
+
+	console.log("processVDOthumbnail is working"); 
 }
 
 
