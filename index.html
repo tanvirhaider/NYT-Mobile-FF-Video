@@ -48,28 +48,38 @@
 
 <script type="text/javascript" id="update-10.4.2019">
 
-var video,replay,adVideo;
+var video1,video2,replay,adVideo;
 
 setTimeout(function(){
 
-  video = document.querySelector('video');
-  replay = document.querySelector("img[src='https://www.gstatic.com/dfp/native/replay.png']"); 
-  adVideo = document.getElementsByClassName('ad-video')[0]; 
+  var vdotags = document.getElementsByTagName("video");
+ 
+    for (var i = 0; i < vdeotags.length; i++) {
+      var tempItem =  document.getElementsByTagName("video")[i];
+      tempItem.addEventListener('play', function(){
+      document.getElementById("adcopy").style.visibility = "hidden";
+      //document.getElementsByClassName("title")[0].style.display = "none"; 
+      //document.getElementsByClassName("summary")[0].style.display = "none";
+      });
 
-  video.addEventListener('play', function(){
-	  document.getElementById("adcopy").style.visibility = "hidden";
-  //document.getElementsByClassName("title")[0].style.display = "none"; 
-  //document.getElementsByClassName("summary")[0].style.display = "none";
-  });
+      tempItem.addEventListener('pause', function(){
+      document.getElementById("adcopy").style.visibility = "visible";
+      //document.getElementsByClassName("title")[0].style.display = "block"; 
+      //document.getElementsByClassName("summary")[0].style.display = "block";    
+      });
+  }
+    
+  
+ // video = document.querySelector('video');
+  //replay = document.querySelector("img[src='https://www.gstatic.com/dfp/native/replay.png']"); 
+  //adVideo = document.getElementsByClassName('ad-video')[0]; 
 
-  video.addEventListener('pause', function(){
-	document.getElementById("adcopy").style.visibility = "visible";
-  //document.getElementsByClassName("title")[0].style.display = "block"; 
-  //document.getElementsByClassName("summary")[0].style.display = "block";    
-  });
+  //video.addEventListener("cat", function(e) { process(e.detail) });
+
+ 
 
 
-  runSIXnine(); 
+ // runSIXnine(); 
 
 
 }, 1000);
@@ -118,6 +128,20 @@ function processVDOthumbnail() {
 
 	console.log("processVDOthumbnail is working"); 
 }
+
+
+function checkingforVideoEnd () {
+	var postVideoFrame;
+
+	try {
+		postVideoFrame = document.getElementById("post-video-content");
+	}
+	catch (Error) {}
+
+
+}
+
+checkingforVideoEnd ();
 
 
 
